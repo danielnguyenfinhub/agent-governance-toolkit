@@ -58,6 +58,12 @@ agent-governance/
 └── README.md
 ```
 
+> **In-repo status:** the `agent-governance` skill is now shipped by the Claude Code
+> plugin at
+> [`agent-governance-claude-code/skills/agent-governance/`](../../agent-governance-claude-code/skills/agent-governance/).
+> It wraps the live `agt_policy_status` and `agt_policy_check_text` MCP tools and
+> documents the policy model in `reference/policy-model.md`.
+
 ### MCP Server Tools
 - `governance/check_policy` — Validate tool calls against policies
 - `governance/detect_threats` — Scan code/prompts for threat patterns

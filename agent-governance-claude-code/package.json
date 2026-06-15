@@ -11,6 +11,7 @@
     "hooks/",
     "lib/",
     "server/",
+    "skills/",
     ".mcp.json",
     "README.md"
   ],

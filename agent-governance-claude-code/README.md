@@ -33,6 +33,9 @@ It also exposes two MCP tools:
 - `agt_policy_status`
 - `agt_policy_check_text`
 
+And one Agent Skill (`agent-governance`) that lets Claude apply these checks on its own
+when a session involves untrusted content or governance questions.
+
 ## Important parity gaps
 
 - Claude slash commands are markdown-driven, so `/agt-governance:agt-status` and `/agt-governance:agt-check` are thin wrappers around MCP tools rather than deterministic code handlers.
@@ -79,6 +82,19 @@ The package provides two Claude commands:
 
 - `/agt-governance:agt-status`
 - `/agt-governance:agt-check`
+
+## Skills
+
+The package also ships an Agent Skill so Claude applies AGT governance on its own when a
+session involves untrusted content or governance questions:
+
+- `agent-governance` (`skills/agent-governance/SKILL.md`) — inspect untrusted text for
+  prompt-injection, context-poisoning, and MCP-style threats; read the active policy and
+  its source; and explain allow/deny/review decisions. The policy-model reference lives in
+  `skills/agent-governance/reference/policy-model.md`.
+
+The skill is a thin, model-facing layer over the same two MCP tools the commands wrap; it
+does not change enforcement, which stays in the deterministic hooks.
 
 ## Example walkthrough
 

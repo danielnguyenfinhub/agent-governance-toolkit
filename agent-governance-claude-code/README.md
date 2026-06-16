@@ -39,6 +39,34 @@ It also exposes two MCP tools:
 - `PostToolUse` in Claude cannot reliably redact tool output after the tool has already executed, so this package does not claim Copilot-style output suppression parity.
 - Hook execution is out-of-process. The package keeps enforcement in command hooks so policy errors can fail closed.
 
+## Install as a Claude Code plugin (local)
+
+To install this plugin into your local Claude plugins directory
+(`~/.claude/plugins/agt-governance`) in one step, run the helper script from a
+checkout of this repo. It copies the plugin source into the target directory and
+installs its production npm dependencies.
+
+```bash
+# macOS / Linux
+scripts/install-claude-plugin.sh
+```
+
+```powershell
+# Windows
+pwsh scripts/install-claude-plugin.ps1
+```
+
+Both accept a custom target (positional arg for bash, `-Target` for PowerShell)
+or the `CLAUDE_PLUGIN_DIR` environment variable. Afterwards, load it with
+`claude --plugin-dir "<target>"`.
+
+If you have already placed the plugin under `~/.claude/plugins/agt-governance`
+yourself, you can install just its dependencies the manual way:
+
+```powershell
+npm install --prefix "$env:USERPROFILE\.claude\plugins\agt-governance"
+```
+
 ## Local development
 
 Run these commands from the **repository root** so the relative plugin path resolves correctly.

@@ -63,8 +63,8 @@ Get-ChildItem -Path $PluginSrc -Force | Where-Object { $exclude -notcontains $_.
     Copy-Item -Path $_.FullName -Destination $Target -Recurse -Force
 }
 
-Write-Host 'Installing npm dependencies (production only)...'
-npm install --prefix "$Target" --omit=dev --no-audit --no-fund
+Write-Host 'Installing npm dependencies (including dev)...'
+npm install --prefix "$Target" --no-audit --no-fund
 if ($LASTEXITCODE -ne 0) {
     Write-Error "npm install failed with exit code $LASTEXITCODE"
 }

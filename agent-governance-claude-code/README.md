@@ -44,7 +44,7 @@ It also exposes two MCP tools:
 To install this plugin into your local Claude plugins directory
 (`~/.claude/plugins/agt-governance`) in one step, run the helper script from a
 checkout of this repo. It copies the plugin source into the target directory and
-installs its production npm dependencies.
+installs its npm dependencies (including dev dependencies).
 
 ```bash
 # macOS / Linux

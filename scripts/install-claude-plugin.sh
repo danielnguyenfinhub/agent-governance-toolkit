@@ -60,8 +60,8 @@ else
     | ( cd "$TARGET" && tar -xf - )
 fi
 
-echo "Installing npm dependencies (production only)..."
-npm install --prefix "$TARGET" --omit=dev --no-audit --no-fund
+echo "Installing npm dependencies (including dev)..."
+npm install --prefix "$TARGET" --no-audit --no-fund
 
 echo
 echo "Done. Plugin installed at: $TARGET"

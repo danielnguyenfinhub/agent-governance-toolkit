@@ -30,6 +30,13 @@ node_modules/
 *.swp
 *.swo
 .claude/
+# Track shared Claude Code config (session-start hook for Claude Code on the web)
+# while keeping personal/local settings ignored.
+!.claude/
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
+.claude/settings.local.json
 .opencode/
 
 ## Ignore Visual Studio temporary files, build results, and
